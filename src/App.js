@@ -1,31 +1,29 @@
+import { useState } from "react";
 import Form from "./Components/Form";
 import Header from "./Components/Header";
-import { useState } from "react";
 import TodoList from "./Components/TodoList";
 
 function App() {
+  //INITIAL STATE FOR TODO
+  const [todos, setTodos] = useState([]);
+
+  //INITIAL STATE FOR INPUT
   const [input, setInput] = useState("");
-  const [todo, setTodo] = useState([]);
-  const [editTodo, setEditTodo] = useState(null);
+
+  // INITIAL STATE FOR EDITING
+  const [edit, setEdit] = useState(null);
   return (
-    <div className="  flex justify-center mt-20 ">
-      <div className="w-[300px] bg-gray-700 h-[400px] rounded-lg shadow-xl">
-        <Header />
-        <Form
-          input={input}
-          setInput={setInput}
-          todo={todo}
-          setTodo={setTodo}
-          editTodo={editTodo}
-          setEditTodo={setEditTodo}
-        />
-        <TodoList
-          todo={todo}
-          setTodo={setTodo}
-          editTodo={editTodo}
-          setEditTodo={setEditTodo}
-        />
-      </div>
+    <div>
+      <Header />
+      <Form
+        todos={todos}
+        setTodos={setTodos}
+        edit={edit}
+        setEdit={setEdit}
+        input={input}
+        setInput={setInput}
+      />
+      <TodoList todos={todos} setTodos={setTodos} setEdit={setEdit} />
     </div>
   );
 }

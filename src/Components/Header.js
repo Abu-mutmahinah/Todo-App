@@ -1,7 +1,9 @@
 const Header = () => {
   return (
-    <div className="text-center ">
-      <h1 className="text-xl mt-5 font-bold text-white">Todo-List</h1>
+    <div>
+      <div className="text-center text-5xl font-bold text-white mt-10">
+        <h1>To-Do-App!</h1>
+      </div>
     </div>
   );
 };
